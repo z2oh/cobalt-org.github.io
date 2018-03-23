@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="utf-8">
+  <title>Cobalt::Docs::Deployment</title>
+<link rel="stylesheet" href="/public/css/styles.css">
+
+  </head>
+  <body>
+    <header>
+      <div class="inner">
+  <div class="primary">
+    <h1><a href="/">
+      <img src="/public/images/logo.svg" width="98" />
+      <span>Cobalt</span>
+    </a></h1>
+  </div>
+  <div class="secondary">
+    <nav>
+      <a href="/getting-started" class="button start"><span>Start</span></a>
+      <a href="/docs" class="button docs"><span>Reference</span></a>
+      <a href="https://github.com/cobalt-org/cobalt.rs/blob/master/CONTRIBUTING.md" class="button contrib"><span>Contribute</span></a>
+      <a href="/help" class="button help"><span>Help!</span></a>
+    </nav>
+  </div>
+</div>
+
+    </header>
+    <main>
+      <section class="docs">
+        <div class="inner">
+          <aside>
+            <p>Basics</p>
+            <ul>
+              <li><a  href="/docs/install.html">Install</a></li>
+              <li><a  href="/docs/usage.html">Usage</a></li>
+              <li><a  href="/docs/directory.html">Directory Structure</a></li>
+              <li><a  href="/docs/config.html">Configuration</a></li>
+            </ul>
+            <hr align="left">
+            <p>Content</p>
+            <ul>
+              <li><a  href="/docs/pages.html">Pages</a></li>
+              <li><a  href="/docs/posts.html">Posts</a></li>
+              <li><a  href="/docs/front.html">Frontmatter</a></li>
+              <li><a  href="/docs/variables.html">Variables</a></li>
+              <li><a  href="/docs/permalink.html">Permalink</a></li>
+              <li><a  href="/docs/layouts.html">Layouts</a></li>
+              <li><a  href="/docs/assets.html">Assets</a></li>
+              <li><a  href="/docs/data.html">Data files</a></li>
+            </ul>
+            <hr align="left">
+            <p>Misc</p>
+            <ul>
+              <li><a  href="/docs/rss.html">RSS</a></li>
+	      <li><a  href="/docs/tools.html">Tools</a></li>
+              <li><a class="active" href="/docs/deployment.html">Deployment</a></li>
+              <li><a  href="/docs/trouble.html">Troubleshooting</a></li>
+            </ul>
+          </aside>
+          <main>
+          <h2>Deployment</h2>
+<h3>TravisCI</h3>
+<h4>Project Site</h4>
+<p>You can easily deploy a cobalt site to <code>gh-pages</code>! To do this with travis is
+also very easy.</p>
+<ol>
+<li>Create your <code>.travis.yml</code> file:</li>
+</ol>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">sudo</span><span style="background-color:#2b303b;color:#c0c5ce;">:</span><span style="background-color:#2b303b;color:#c0c5ce;"> </span><span style="background-color:#2b303b;color:#d08770;">false</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#bf616a;">before_script</span><span style="background-color:#2b303b;color:#c0c5ce;">:</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#c0c5ce;">-</span><span style="background-color:#2b303b;color:#c0c5ce;"> </span><span style="background-color:#2b303b;color:#a3be8c;">curl -LSfs https://japaric.github.io/trust/install.sh |</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#a3be8c;">sh -s --</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#a3be8c;">--git cobalt-org/cobalt.rs</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#a3be8c;">--crate cobalt</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#a3be8c;">--force</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#a3be8c;">--target x86_64-unknown-linux-gnu</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#a3be8c;">--tag v0.11.1</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#c0c5ce;">-</span><span style="background-color:#2b303b;color:#c0c5ce;"> </span><span style="background-color:#2b303b;color:#a3be8c;">export PATH=&quot;$PATH:~/.cargo/bin&quot;</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#bf616a;">script</span><span style="background-color:#2b303b;color:#c0c5ce;">:</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#c0c5ce;">-</span><span style="background-color:#2b303b;color:#c0c5ce;"> </span><span style="background-color:#2b303b;color:#a3be8c;">cobalt build</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#bf616a;">deploy</span><span style="background-color:#2b303b;color:#c0c5ce;">:</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">provider</span><span style="background-color:#2b303b;color:#c0c5ce;">:</span><span style="background-color:#2b303b;color:#c0c5ce;"> </span><span style="background-color:#2b303b;color:#a3be8c;">pages</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">skip_cleanup</span><span style="background-color:#2b303b;color:#c0c5ce;">:</span><span style="background-color:#2b303b;color:#c0c5ce;"> </span><span style="background-color:#2b303b;color:#d08770;">true</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">github_token</span><span style="background-color:#2b303b;color:#c0c5ce;">:</span><span style="background-color:#2b303b;color:#c0c5ce;"> </span><span style="background-color:#2b303b;color:#a3be8c;">$GH_TOKEN</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">local_dir</span><span style="background-color:#2b303b;color:#c0c5ce;">:</span><span style="background-color:#2b303b;color:#c0c5ce;"> </span><span style="background-color:#2b303b;color:#a3be8c;">_site</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">target_branch</span><span style="background-color:#2b303b;color:#c0c5ce;">:</span><span style="background-color:#2b303b;color:#c0c5ce;"> </span><span style="background-color:#2b303b;color:#a3be8c;">master</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#d08770;">on</span><span style="background-color:#2b303b;color:#c0c5ce;">:</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#bf616a;">branch</span><span style="background-color:#2b303b;color:#c0c5ce;">:</span><span style="background-color:#2b303b;color:#c0c5ce;"> </span><span style="background-color:#2b303b;color:#a3be8c;">source</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span></pre>
+<ul>
+<li>
+<p><code>--tag</code>: update to reflect the desired version of cobalt.</p>
+</li>
+<li>
+<p><code>local_dir</code>: update it according to your <a href="/docs/config.html"><code>destination</code></a></p>
+</li>
+<li>
+<p><code>target_branch</code>: Update to reflect the branch that you configured as the source for <a href="https://pages.github.com/">Github Pages</a>.</p>
+</li>
+<li>
+<p><code>on: branch</code>: Update to reflect the branch your source is kept in.</p>
+</li>
+</ul>
+<ol start="2">
+<li>Configure your <code>GH_TOKEN</code></li>
+</ol>
+<p>This is a limited access API token for Travis to commit to your page's github repo.  You can create one <a href="https://github.com/settings/tokens">here</a>.</p>
+<p>To add it to your <code>.travis.yml</code> file, you will need to use the <a href="https://github.com/travis-ci/travis.rb#the-travis-client-">travis cli
+tool</a>.  This will
+encrypt the token specifically to your repo and branch.</p>
+<p>Example:
+<code>travis encrypt GH_TOKEN=... --add env.global</code></p>
+<h4>Personal or Organization Site</h4>
+<p>The main difference with a personal site is that github only allows
+the <code>master</code> branch to serve the pages.  Instead, you could
+keep your source in another branch, like <code>source</code> and have
+cobalt import your site into the <code>master</code> branch.</p>
+<h3>GitLab CI</h3>
+<p>You can also deploy a cobalt site to <a href="http://pages.gitlab.io/">Gitlab Pages</a>
+using GitLab CI.  GitLab CI uses <a href="https://docs.docker.com">Docker</a>, you can use
+<a href="https://hub.docker.com/r/nott/cobalt/">nott/cobalt</a> or any other image with
+<code>cobalt</code> in <code>PATH</code>.</p>
+<p>An example of <code>.gitlab-ci.yml</code>:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#bf616a;">image</span><span style="background-color:#2b303b;color:#c0c5ce;">:</span><span style="background-color:#2b303b;color:#c0c5ce;"> </span><span style="background-color:#2b303b;color:#a3be8c;">nott/cobalt:latest</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#bf616a;">pages</span><span style="background-color:#2b303b;color:#c0c5ce;">:</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">script</span><span style="background-color:#2b303b;color:#c0c5ce;">:</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#c0c5ce;">-</span><span style="background-color:#2b303b;color:#c0c5ce;"> </span><span style="background-color:#2b303b;color:#a3be8c;">mkdir -p public</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#c0c5ce;">-</span><span style="background-color:#2b303b;color:#c0c5ce;"> </span><span style="background-color:#2b303b;color:#a3be8c;">cobalt build -d public</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">artifacts</span><span style="background-color:#2b303b;color:#c0c5ce;">:</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#bf616a;">paths</span><span style="background-color:#2b303b;color:#c0c5ce;">:</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#c0c5ce;">-</span><span style="background-color:#2b303b;color:#c0c5ce;"> </span><span style="background-color:#2b303b;color:#a3be8c;">public/</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#bf616a;">only</span><span style="background-color:#2b303b;color:#c0c5ce;">:</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">  </span><span style="background-color:#2b303b;color:#c0c5ce;">-</span><span style="background-color:#2b303b;color:#c0c5ce;"> </span><span style="background-color:#2b303b;color:#a3be8c;">master</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span></pre>
+<h3>Other</h3>
+<p>To import your site to your <code>gh-pages</code> branch you can either
+pass a <code>build --import</code> flag when you build the site or after
+you have build the site with <code>build</code> you can run
+<code>import</code>. There are also some flags that can be found via
+<code>import --help</code>.</p>
+
+          </main>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="inner">
+  <p>Made with ❤️  by the Cobalt contributors</p>
+</div>
+
+    </footer>
+  </body>
+</html>

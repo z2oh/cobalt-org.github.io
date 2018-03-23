@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="utf-8">
+  <title>Cobalt::Docs::Pages</title>
+<link rel="stylesheet" href="/public/css/styles.css">
+
+  </head>
+  <body>
+    <header>
+      <div class="inner">
+  <div class="primary">
+    <h1><a href="/">
+      <img src="/public/images/logo.svg" width="98" />
+      <span>Cobalt</span>
+    </a></h1>
+  </div>
+  <div class="secondary">
+    <nav>
+      <a href="/getting-started" class="button start"><span>Start</span></a>
+      <a href="/docs" class="button docs"><span>Reference</span></a>
+      <a href="https://github.com/cobalt-org/cobalt.rs/blob/master/CONTRIBUTING.md" class="button contrib"><span>Contribute</span></a>
+      <a href="/help" class="button help"><span>Help!</span></a>
+    </nav>
+  </div>
+</div>
+
+    </header>
+    <main>
+      <section class="docs">
+        <div class="inner">
+          <aside>
+            <p>Basics</p>
+            <ul>
+              <li><a  href="/docs/install.html">Install</a></li>
+              <li><a  href="/docs/usage.html">Usage</a></li>
+              <li><a  href="/docs/directory.html">Directory Structure</a></li>
+              <li><a  href="/docs/config.html">Configuration</a></li>
+            </ul>
+            <hr align="left">
+            <p>Content</p>
+            <ul>
+              <li><a class="active" href="/docs/pages.html">Pages</a></li>
+              <li><a  href="/docs/posts.html">Posts</a></li>
+              <li><a  href="/docs/front.html">Frontmatter</a></li>
+              <li><a  href="/docs/variables.html">Variables</a></li>
+              <li><a  href="/docs/permalink.html">Permalink</a></li>
+              <li><a  href="/docs/layouts.html">Layouts</a></li>
+              <li><a  href="/docs/assets.html">Assets</a></li>
+              <li><a  href="/docs/data.html">Data files</a></li>
+            </ul>
+            <hr align="left">
+            <p>Misc</p>
+            <ul>
+              <li><a  href="/docs/rss.html">RSS</a></li>
+	      <li><a  href="/docs/tools.html">Tools</a></li>
+              <li><a  href="/docs/deployment.html">Deployment</a></li>
+              <li><a  href="/docs/trouble.html">Troubleshooting</a></li>
+            </ul>
+          </aside>
+          <main>
+          <h2>Pages</h2>
+<p>A page is any file found in the <a href="/docs/config.html"><code>source</code></a> directory that</p>
+<ul>
+<li>Has an extension in <a href="/docs/config.html"><code>template_extensions</code></a></li>
+<li>isn't hidden (leading <code>.</code> or <code>_</code>)</li>
+<li>isn't excluded through <a href="/docs/config.html"><code>ignore</code></a></li>
+</ul>
+<p>Pages go through several transformations:</p>
+<ol>
+<li>Evaluate Liquid template expressions.</li>
+<li>(If <code>.md</code> extension) Convert <a href="http://commonmark.org/help/">Markdown</a> to HTML.</li>
+<li>Wrap the content in a Liquid <a href="/docs/layouts.html">layout</a>.</li>
+<li>Write the results to a parallel location in the <a href="/docs/config.html"><code>destination</code></a> but with a <code>.html</code> extension.</li>
+</ol>
+<p>You can customize this behavior with the <a href="/docs/front.html">frontmatter</a>.</p>
+<h3>Syntax Highlighting</h3>
+<p>This feature is currently experimental and causes installation to fail on
+Windows. To enable syntax highlighting, you need to install Cobalt <a href="/docs/install.html">from
+source</a> with the <code>syntax-highlight</code> feature.</p>
+<p>You can highlight your code using the <code>{% highlight LANG %}</code> / <code>{% endhighlight %}</code> Liquid tags.</p>
+<p>Alternatively, if you are using Markdown, you can <a href="https://help.github.com/articles/creating-and-highlighting-code-blocks/#syntax-highlighting">annotate your code
+blocks</a>.</p>
+<p>To see what syntaxes are supported:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#c0c5ce;">$ cobalt debug highlight syntaxes
+</span></pre>
+<p>The theme is taken from your <a href="/docs/config.html"><code>_cobalt.yml</code></a>.  To see the list of supported themes:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#c0c5ce;">$ cobalt debug highlight themes
+</span></pre>
+          </main>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="inner">
+  <p>Made with ❤️  by the Cobalt contributors</p>
+</div>
+
+    </footer>
+  </body>
+</html>

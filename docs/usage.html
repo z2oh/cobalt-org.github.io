@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="utf-8">
+  <title>Cobalt::Docs::Usage</title>
+<link rel="stylesheet" href="/public/css/styles.css">
+
+  </head>
+  <body>
+    <header>
+      <div class="inner">
+  <div class="primary">
+    <h1><a href="/">
+      <img src="/public/images/logo.svg" width="98" />
+      <span>Cobalt</span>
+    </a></h1>
+  </div>
+  <div class="secondary">
+    <nav>
+      <a href="/getting-started" class="button start"><span>Start</span></a>
+      <a href="/docs" class="button docs"><span>Reference</span></a>
+      <a href="https://github.com/cobalt-org/cobalt.rs/blob/master/CONTRIBUTING.md" class="button contrib"><span>Contribute</span></a>
+      <a href="/help" class="button help"><span>Help!</span></a>
+    </nav>
+  </div>
+</div>
+
+    </header>
+    <main>
+      <section class="docs">
+        <div class="inner">
+          <aside>
+            <p>Basics</p>
+            <ul>
+              <li><a  href="/docs/install.html">Install</a></li>
+              <li><a class="active" href="/docs/usage.html">Usage</a></li>
+              <li><a  href="/docs/directory.html">Directory Structure</a></li>
+              <li><a  href="/docs/config.html">Configuration</a></li>
+            </ul>
+            <hr align="left">
+            <p>Content</p>
+            <ul>
+              <li><a  href="/docs/pages.html">Pages</a></li>
+              <li><a  href="/docs/posts.html">Posts</a></li>
+              <li><a  href="/docs/front.html">Frontmatter</a></li>
+              <li><a  href="/docs/variables.html">Variables</a></li>
+              <li><a  href="/docs/permalink.html">Permalink</a></li>
+              <li><a  href="/docs/layouts.html">Layouts</a></li>
+              <li><a  href="/docs/assets.html">Assets</a></li>
+              <li><a  href="/docs/data.html">Data files</a></li>
+            </ul>
+            <hr align="left">
+            <p>Misc</p>
+            <ul>
+              <li><a  href="/docs/rss.html">RSS</a></li>
+	      <li><a  href="/docs/tools.html">Tools</a></li>
+              <li><a  href="/docs/deployment.html">Deployment</a></li>
+              <li><a  href="/docs/trouble.html">Troubleshooting</a></li>
+            </ul>
+          </aside>
+          <main>
+          <h2>Usage</h2>
+<h3>init</h3>
+<p>Create a site with an example pages, posts, and layouts:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#65737e;">#</span><span style="background-color:#2b303b;color:#65737e;"> Create site in current directory
+</span><span style="background-color:#2b303b;color:#c0c5ce;">$ cobalt init
+</span><span style="background-color:#2b303b;color:#65737e;">#</span><span style="background-color:#2b303b;color:#65737e;"> Create site in `myBlog` sub-directory
+</span><span style="background-color:#2b303b;color:#c0c5ce;">$ cobalt init myBlog
+</span></pre>
+<h3>serve</h3>
+<p>Serve your site at <code>127.0.0.1:3000</code></p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#c0c5ce;">$ cobalt serve
+</span><span style="background-color:#2b303b;color:#65737e;">#</span><span style="background-color:#2b303b;color:#65737e;"> Include drafts
+</span><span style="background-color:#2b303b;color:#c0c5ce;">$ cobalt serve --drafts
+</span></pre>
+<p>This provides live reload; it will re-generate your site as you add or change content.</p>
+<h3>new</h3>
+<p>Add a new page or post to your site:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#65737e;">#</span><span style="background-color:#2b303b;color:#65737e;"> Creates page `cats-around-the-world.md` in the current directory
+</span><span style="background-color:#2b303b;color:#c0c5ce;">$ cobalt new </span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;</span><span style="background-color:#2b303b;color:#a3be8c;">Cats Around the World</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#65737e;">#</span><span style="background-color:#2b303b;color:#65737e;"> Creates post `cats-around-the-world.md` in the `posts` directory
+</span><span style="background-color:#2b303b;color:#c0c5ce;">$ cobalt new </span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;</span><span style="background-color:#2b303b;color:#a3be8c;">Cats Around the World</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;</span><span style="background-color:#2b303b;color:#c0c5ce;"> --</span><span style="background-color:#2b303b;color:#b48ead;">file</span><span style="background-color:#2b303b;color:#c0c5ce;"> posts
+</span><span style="background-color:#2b303b;color:#65737e;">#</span><span style="background-color:#2b303b;color:#65737e;"> Creates post `cats.md` in the `posts` directory
+</span><span style="background-color:#2b303b;color:#c0c5ce;">$ cobalt new </span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;</span><span style="background-color:#2b303b;color:#a3be8c;">Cats Around the World</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;</span><span style="background-color:#2b303b;color:#c0c5ce;"> --</span><span style="background-color:#2b303b;color:#b48ead;">file</span><span style="background-color:#2b303b;color:#c0c5ce;"> posts/cats.md
+</span></pre>
+<p>You can modify the template used for <code>new</code> by editing the files in <a href="/docs/directory.html"><code>_defaults</code></a>.</p>
+<h3>publish</h3>
+<p>Once your post is ready, you can publish it:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#c0c5ce;">$ cobalt publish posts/cats-around-the-world.md
+</span></pre>
+<p>The page will no longer be a &quot;draft&quot; and the <code>published_date</code> will be set to today.</p>
+<h3>More</h3>
+<p>To see all the available commands, run</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#c0c5ce;">$ cobalt --</span><span style="background-color:#2b303b;color:#b48ead;">help</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span></pre>
+<p>You can then get help with those commands by running</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#c0c5ce;">$ cobalt </span><span style="background-color:#2b303b;color:#c0c5ce;">&lt;</span><span style="background-color:#2b303b;color:#b48ead;">command</span><span style="background-color:#2b303b;color:#c0c5ce;">&gt;</span><span style="background-color:#2b303b;color:#c0c5ce;"> --</span><span style="background-color:#2b303b;color:#b48ead;">help</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span></pre>
+          </main>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="inner">
+  <p>Made with ❤️  by the Cobalt contributors</p>
+</div>
+
+    </footer>
+  </body>
+</html>

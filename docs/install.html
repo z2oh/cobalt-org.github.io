@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="utf-8">
+  <title>Cobalt::Docs::Install</title>
+<link rel="stylesheet" href="/public/css/styles.css">
+
+  </head>
+  <body>
+    <header>
+      <div class="inner">
+  <div class="primary">
+    <h1><a href="/">
+      <img src="/public/images/logo.svg" width="98" />
+      <span>Cobalt</span>
+    </a></h1>
+  </div>
+  <div class="secondary">
+    <nav>
+      <a href="/getting-started" class="button start"><span>Start</span></a>
+      <a href="/docs" class="button docs"><span>Reference</span></a>
+      <a href="https://github.com/cobalt-org/cobalt.rs/blob/master/CONTRIBUTING.md" class="button contrib"><span>Contribute</span></a>
+      <a href="/help" class="button help"><span>Help!</span></a>
+    </nav>
+  </div>
+</div>
+
+    </header>
+    <main>
+      <section class="docs">
+        <div class="inner">
+          <aside>
+            <p>Basics</p>
+            <ul>
+              <li><a class="active" href="/docs/install.html">Install</a></li>
+              <li><a  href="/docs/usage.html">Usage</a></li>
+              <li><a  href="/docs/directory.html">Directory Structure</a></li>
+              <li><a  href="/docs/config.html">Configuration</a></li>
+            </ul>
+            <hr align="left">
+            <p>Content</p>
+            <ul>
+              <li><a  href="/docs/pages.html">Pages</a></li>
+              <li><a  href="/docs/posts.html">Posts</a></li>
+              <li><a  href="/docs/front.html">Frontmatter</a></li>
+              <li><a  href="/docs/variables.html">Variables</a></li>
+              <li><a  href="/docs/permalink.html">Permalink</a></li>
+              <li><a  href="/docs/layouts.html">Layouts</a></li>
+              <li><a  href="/docs/assets.html">Assets</a></li>
+              <li><a  href="/docs/data.html">Data files</a></li>
+            </ul>
+            <hr align="left">
+            <p>Misc</p>
+            <ul>
+              <li><a  href="/docs/rss.html">RSS</a></li>
+	      <li><a  href="/docs/tools.html">Tools</a></li>
+              <li><a  href="/docs/deployment.html">Deployment</a></li>
+              <li><a  href="/docs/trouble.html">Troubleshooting</a></li>
+            </ul>
+          </aside>
+          <main>
+          <h2>Installation</h2>
+<p>Cobalt supports Windows, Linux, and Mac.</p>
+<h3>OS Package</h3>
+<p><em>None available yet</em></p>
+<h3>Pre-built Binary</h3>
+<p>Requirements: <em>None</em></p>
+<p>Download a <a href="https://github.com/cobalt-org/cobalt.rs/releases">release</a>.</p>
+<p>or the following will install cobalt to <code>~/.cargo/bin</code>:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#c0c5ce;">$ curl -LSfs https://japaric.github.io/trust/install.sh | sh -s -- --git cobalt-org/cobalt.rs --crate cobalt
+</span></pre>
+<h3>From Source</h3>
+<p>Requirements: <a href="https://www.rust-lang.org/en-US/install.html">Rust</a></p>
+<h4>Prepration</h4>
+<h5>Debian 9 (stretch)</h5>
+<ol>
+<li>Install needed packages with <code>sudo apt install cmake git curl</code></li>
+<li>Install rust (do <strong>not</strong> use the package <code>sudo apt install rust</code>
+as this will install a old rust version). Use
+<code>curl https://sh.rustup.rs -sSf | sh</code> instead.</li>
+<li>Source the Rust environment with <code>source $HOME/.cargo/env</code></li>
+</ol>
+<h4>Compile Steps</h4>
+<ol>
+<li>Either
+<code>git clone https://github.com/cobalt-org/cobalt.rs.git</code>
+or
+Download a <a href="https://github.com/cobalt-org/cobalt.rs/archive/master.zip">zip archive</a></li>
+<li><code>cargo build --release</code></li>
+<li>Check if all tests are passing with:
+<code>cargo test</code></li>
+</ol>
+<p>You can also customize the build, including adding support for unstable <a href="https://github.com/cobalt-org/cobalt.rs/blob/master/Cargo.toml#L66">features</a>:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#c0c5ce;">$ cargo build --release --features</span><span style="background-color:#2b303b;color:#c0c5ce;">=</span><span style="background-color:#2b303b;color:#c0c5ce;">sass
+</span></pre>
+          </main>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="inner">
+  <p>Made with ❤️  by the Cobalt contributors</p>
+</div>
+
+    </footer>
+  </body>
+</html>
